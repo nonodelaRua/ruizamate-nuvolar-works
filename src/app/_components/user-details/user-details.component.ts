@@ -11,6 +11,8 @@ export class UserDetailsComponent implements OnInit {
 
   username: string;
   user: any = {};
+  followers: any = [];
+  repos: any = [];
 
   constructor(
     private userService: UserService,
@@ -23,7 +25,24 @@ export class UserDetailsComponent implements OnInit {
       this.userService.getUserInfo(this.username).subscribe((resp) => {
         this.user = resp;
         console.log(this.user);
+        this.getFollowers();
+        this.getRepos();
       });
+    });
+  }
+
+  getFollowers() {
+    console.log(this.username);
+    this.userService.getUserFollowers(this.username).subscribe((resp) => {
+      this.followers = resp;
+      console.log(this.followers);
+    });
+  }
+
+  getRepos() {
+    this.userService.getUserRepos(this.username).subscribe((resp) => {
+      this.repos = resp;
+      console.log(this.repos);
     });
   }
 

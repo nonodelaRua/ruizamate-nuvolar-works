@@ -7,14 +7,29 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserService {
-  githubUsersListURL:string = 'https://api.github.com/users/nonodelaRua/followers';
-  githubUserInfoURL:string = 'https://api.github.com/users/[userName]';
+  githubUsersListURL:string = 'https://api.github.com/users';
+  githubUserInfoURL:string = 'https://api.github.com/users/[username]';
+  githubUserFollowersURL:string = 'https://api.github.com/users/[username]/followers';
+  githubUserReposURL:string = 'https://api.github.com/users/[username]/repos';
 
   constructor(private http:HttpClient) {}
 
   getUserInfo(username) {
     if (username) {
-      return this.http.get(this.githubUserInfoURL.replace('[userName]', username));
+      return this.http.get(this.githubUserInfoURL.replace('[username]', username));
+    }
+  }
+
+  getUserFollowers(username) {
+    if (username) {
+      console.log(username);
+      return this.http.get(this.githubUserFollowersURL.replace('[username]', username));
+    }
+  }
+
+  getUserRepos(username) {
+    if (username) {
+      return this.http.get(this.githubUserReposURL.replace('[username]', username));
     }
   }
 

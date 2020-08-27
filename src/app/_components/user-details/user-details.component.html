@@ -8,35 +8,32 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-3">
-                <div class="card" style="width: 18rem;">
+            <div class="col-sm-5">
+                <div class="card">
                     <img [src]="user.avatar_url" class="card-img-top user-details__card-img">
                     <div class="card-body">
                         <h5 class="card-title">{{ user.name }}</h5>
                         <p class="card-text">Username: {{ user.login }}</p>
                         <p class="card-text">Location: {{ user.location }}</p>
+                        <p class="card-text">URL: {{ user.html_url }}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-7">
                 <div class="user-details__list-content">
                     <h4>Public Repositories</h4>
                     <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li *ngFor="let rep of repos; let i=index" class="list-group-item">
+                            {{ rep.full_name }}
+                        </li>
                     </ul>
                 </div>
                 <div class="user-details__list-content">
                     <h4>Followers</h4>
                     <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li *ngFor="let follow of followers; let i=index" class="list-group-item">
+                            {{ follow.login }}
+                        </li>
                     </ul>
                 </div>
             </div>
