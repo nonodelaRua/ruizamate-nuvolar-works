@@ -3,10 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Components
 import { SearchComponent } from './_components/search/search.component';
+import { UserDetailsComponent } from './_components/user-details/user-details.component';
 
 const routes: Routes = [
   { path: 'search', component: SearchComponent },
-  // { path: 'user/:id', component: ProductDetailsComponent },
+  { path: 'user/:username', component: UserDetailsComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'search' }
 ];
 

@@ -25,8 +25,8 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  viewDetails(id:number) {
-    this.router.navigate(['/user-details', id]);
+  viewDetails(username:number) {
+    this.router.navigate(['/user', username]);
   }
 
 }
