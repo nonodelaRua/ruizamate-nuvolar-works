@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserService {
-  githubUsersSearchURL:string = 'https://api.github.com/search/users?q=[username]&type=Users';
+  githubUsersSearchURL:string = 'https://api.github.com/search/users?q=[username]&type=Users?per_page=50';
   githubUserInfoURL:string = 'https://api.github.com/users/[username]';
   githubUserFollowersURL:string = 'https://api.github.com/users/[username]/followers';
   githubUserReposURL:string = 'https://api.github.com/users/[username]/repos';
