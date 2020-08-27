@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 
 // Angular imports
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 // Components
 import { SearchComponent } from './_components/search/search.component';
 import { UserDetailsComponent } from './_components/user-details/user-details.component';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { UserDetailsComponent } from './_components/user-details/user-details.co
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
     MatToolbarModule
   ],

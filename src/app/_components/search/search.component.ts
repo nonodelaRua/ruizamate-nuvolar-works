@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
 })
 export class SearchComponent implements OnInit {
 
+  username:string = '';
   usersList:any = [];
+  total:number = 0;
 
   constructor(
     private userService: UserService,
@@ -19,13 +21,14 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {}
 
-  getUsers() {
-    this.userService.getUsers().subscribe((resp) => {
-      this.usersList = resp;
+  search() {
+    this.userService.search(this.username).subscribe((resp) => {
+      this.usersList = resp['items'];
+      this.total = this.usersList.length;
     });
   }
 
-  viewDetails(username:number) {
+  goTo(username:string) {
     this.router.navigate(['/user', username]);
   }
 

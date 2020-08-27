@@ -1,14 +1,36 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <p class="lead">Type username to search...</p>
+        <p class="lead">Type username on GitHub to search...</p>
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                aria-describedby="button-addon2">
+                aria-describedby="button-addon2"
+                [(ngModel)]="username" name="username" (keyup.enter)="search()" (keypress)="search()">
             <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="search()">
+                    Search
+                </button>
             </div>
         </div>
     </div>
 </div>
 
-<button (click)="viewDetails('nonodelarua')" type="button" class="btn btn-primary">Primary</button>
+<div class="search-results__content">
+    <div *ngIf="total == 0; else elseBlock" class="alert alert-secondary" role="alert">
+        There are no results for your search.
+    </div>
+    <ng-template #elseBlock>
+        <div class="alert alert-primary" role="alert">
+            <b>{{ total }} results found for: {{ username }}</b>
+        </div>
+        <ul class="list-unstyled">
+            <li *ngFor="let user of usersList; let i=index" (click)="goTo(user.login)" class="media">
+                <img [src]="user.avatar_url" class="mr-3 users-list__avatar">
+                <div class="media-body">
+                    <h5 class="mb-1">{{ user.login }}</h5>
+                </div>
+            </li>
+        </ul>
+    </ng-template>
+</div>
+
+<!-- <button (click)="viewDetails('nonodelarua')" type="button" class="btn btn-primary">Primary</button> -->
