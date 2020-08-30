@@ -1,4 +1,24 @@
-.toobar__link a {
+.toolbar__link a {
     color: white;
     text-decoration: none;
+}
+
+.toolbar__content,
+.toolbar__toggle {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.toolbar__content {
+    width: inherit;
+}
+
+.toolbar__toggle {
+    font-size: 12px;
+
+    span {
+        margin-right: 8px;
+    }
 }

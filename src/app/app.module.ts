@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 // Angular imports
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatToolbarModule, MatButtonToggleModule, MatSlideToggleModule } from '@angular/material';
 
 // Components
 import { SearchComponent } from './_components/search/search.component';
@@ -25,7 +25,9 @@ import { UserDetailsComponent } from './_components/user-details/user-details.co
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonToggleModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class SearchComponent implements OnInit {
 
   username:string = '';
+  value:string = '';
   usersList:any = [];
   total:number = 0;
 

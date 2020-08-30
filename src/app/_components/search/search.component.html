@@ -4,7 +4,7 @@
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Username" aria-label="Username"
                 aria-describedby="button-addon2"
-                [(ngModel)]="username" name="username" (keyup.enter)="search()" (keypress)="search()">
+                [(ngModel)]="username" name="username" (keyup)="search()" (keypress)="search()">
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="search()">
                     Search
@@ -15,7 +15,7 @@
 </div>
 
 <div class="search-results__content">
-    <div *ngIf="total == 0; else elseBlock" class="alert alert-secondary" role="alert">
+    <div *ngIf="(total == 0 || !username); else elseBlock" class="alert alert-secondary" role="alert">
         There are no results for your search.
     </div>
     <ng-template #elseBlock>
