@@ -1,15 +1,14 @@
-<mat-toolbar [color]="themeColor">
-  <div class="toolbar__content">
-    <span class="toolbar__link"><a href="/"> Nuvolar Works! </a></span>
-    <div class="toolbar__toggle">
-      <span>Theme color</span>
-      <mat-button-toggle-group [(ngModel)]="themeColor" name="themeColor" aria-label="Theme Color">
-        <mat-button-toggle value="primary">1</mat-button-toggle>
-        <mat-button-toggle value="accent">2</mat-button-toggle>
-        <mat-button-toggle value="warn">3</mat-button-toggle>
-      </mat-button-toggle-group>
+<div [ngClass]="{'dark-theme': isDarkTheme | async}">
+  <mat-toolbar color="primary">
+    <div class="toolbar__content">
+      <h1 (click)="home()"> Nuvolar Works! </h1>
+      <div class="toolbar__toggle">
+        <mat-slide-toggle [checked]="isDarkTheme | async" labelPosition="before" (change)="toggleDarkTheme($event.checked)">
+          Dark theme
+        </mat-slide-toggle>
+      </div>
     </div>
-  </div>
-</mat-toolbar>
-
-<router-outlet></router-outlet>
+  </mat-toolbar>
+  
+  <router-outlet></router-outlet>
+</div>

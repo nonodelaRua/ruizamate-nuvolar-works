@@ -1,13 +1,15 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
         <p class="lead">Type username on GitHub to search...</p>
-        <div class="input-group mb-3">
+        <div class="input-group">
             <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                aria-describedby="button-addon2"
-                [(ngModel)]="username" name="username" (keyup)="search()" (keypress)="search()">
+                aria-describedby="button-addon2" name="username"
+                [(ngModel)]="username" 
+                (keyup)="search()"
+                (keypress)="search()">
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="search()">
-                    Search
+                    <mat-icon aria-hidden="false">search</mat-icon>
                 </button>
             </div>
         </div>
@@ -32,5 +34,3 @@
         </ul>
     </ng-template>
 </div>
-
-<!-- <button (click)="viewDetails('nonodelarua')" type="button" class="btn btn-primary">Primary</button> -->

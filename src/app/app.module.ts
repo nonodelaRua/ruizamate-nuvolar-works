@@ -7,11 +7,12 @@ import { AppComponent } from './app.component';
 // Angular imports
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { MatToolbarModule, MatButtonToggleModule, MatSlideToggleModule } from '@angular/material';
+import { MatToolbarModule, MatButtonToggleModule, MatSlideToggleModule, MatIconModule } from '@angular/material';
 
 // Components
 import { SearchComponent } from './_components/search/search.component';
 import { UserDetailsComponent } from './_components/user-details/user-details.component';
+import { ThemeService } from './_services/theme/theme-service.service';
 
 
 @NgModule({
@@ -24,12 +25,15 @@ import { UserDetailsComponent } from './_components/user-details/user-details.co
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MatIconModule,
     HttpClientModule,
     MatToolbarModule,
     MatButtonToggleModule,
     MatSlideToggleModule
   ],
-  providers: [],
+  providers: [
+    ThemeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
